@@ -1,14 +1,11 @@
 const express = require('express');
-const PORT = 5000;
+
+const userRoutes = require('./users/userRoutes');
 
 const server = express();
 
 server.use(express.json());
 
-server.get('/', (req, res) => {
-    res.send('Hello World, from Express!');
-});
+server.use('/users', userRoutes);
 
-server.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`)
-});
+module.exports =server;
